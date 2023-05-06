@@ -1,0 +1,310 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap");
+@import "./mixins.scss";
+* {
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+ul li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.btn {
+  display: inline-block;
+  text-align: center;
+  background: #34547a;
+  border:2px solid  transparent;
+  color: #ffffff;
+  transition: .5s;
+  &:hover{
+    background-color: #ffffff;
+    border:2px solid  #34547a;
+    color: #34547a;
+    border-radius: 10px;
+  }
+}
+.header {
+  // Закрепил header чтобы была удобная навигация по сайту
+  position: sticky;
+  width: 100%;
+  top: 0;
+  background-color: #ffffff;
+  z-index: 2;
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+    align-items: center;
+    &__list {
+      display: flex;
+      gap: 42px;
+      &-link {
+        color: inherit;
+        &:hover {
+          color: #34547a;
+        }
+      }
+    }
+  }
+}
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+.col-2 {
+  width: 16.66%;
+}
+.col-3 {
+  width: 25%;
+}
+.col-6 {
+  width: 50%;
+  padding: 0 15px;
+}
+.col_helper {
+  max-width: 450px;
+}
+.home {
+  padding-top: 260px;
+  padding-bottom: 136px;
+  background-color: #eeeff1;
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: -15px;
+    padding-right: -15px;
+  }
+  &__title {
+    @include font(500, 48px, 79px);
+    margin-bottom: 60px;
+  }
+  &__description {
+    @include font(400, 16px, 26px);
+    color: #727272;
+    margin-bottom: 60px;
+  }
+  &__btn {
+    @include font(400, 16px, 15px);
+    letter-spacing: 0.1em;
+    padding: 25px 41px;
+  }
+}
+.about {
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 119px;
+  padding-bottom: 100px;
+  max-width: 540px;
+  // padding: 119px 690px 100px-если использовать этот вариант то текст деформируется при изменении масштаба;
+  &__title {
+    @include font(500, 32px, 38px);
+    margin-bottom: 50px;
+  }
+  &__description {
+    @include font(400, 16px, 26px);
+    color: #727272;
+  }
+}
+.projects {
+  background-color: #34547a;
+  &__row {
+    display: flex;
+    padding: 100px 0;
+    gap: 52px;
+  }
+  &-item {
+    display: flex;
+    flex-wrap: wrap;
+    color: #ffffff;
+    gap: 20px;
+  }
+  &__numbers {
+    @include font(500, 21px, 25px);
+  }
+  &__description {
+    @include font(400, 16px, 25px);
+  }
+}
+.skills {
+  &__row {
+    padding: 102px 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &-img {
+    width: 555px;
+    height: 450px;
+  }
+  &__title {
+    @include font(500, 32px, 30px);
+    padding-top: 102px;
+    margin-bottom: 50px;
+  }
+  &__description {
+    @include font(400, 16px, 15px);
+    position: relative;
+    margin-bottom: 54px;
+    color: #727272;
+    &::before {
+      content: "";
+      top: 38px;
+      position: absolute;
+      width: 445px;
+      height: 4px;
+      background: #c4c4c4;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background: #34547a;
+      top: 38px;
+      left: 0;
+      width: 349px;
+      height: 4px;
+    }
+  }
+}
+.work {
+  background: #eeeff1;
+  padding: 100px 0;
+  &__item {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 540px;
+  }
+  &__title {
+    @include font(500, 32px, 30px);
+    margin-bottom: 50px;
+  }
+  &__description {
+    @include font(400, 16px, 25px);
+    margin-bottom: 57px;
+    color: #727272;
+  }
+  &-vid {
+    cursor: pointer;
+    width: 1110px;
+    height: 600px;
+  }
+}
+.portfolio {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 28px;
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+  div {
+    position: relative;
+    cursor: pointer;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: .6s;
+    }
+    &:hover::before {
+      content: '';
+      background-color: rgba(52, 84, 122, 0.8);
+    }
+    &::after{
+        content: "";
+      position: absolute;
+      transition: .5s;
+    }
+    &:hover::after {
+        content: url(../img/portfolio/eye.png);
+        top: 40%;
+        left: 40%;
+      }
+  }
+}
+.clients {
+  padding: 72px 0 100px;
+  &__row {
+    display: flex;
+    gap: 30px;
+  }
+}
+.contacts {
+  background: #eeeff1;
+  padding: 100px 0;
+  &__item {
+    max-width: 540px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  &__title {
+    @include font(500, 32px, 30px);
+    margin-bottom: 50px;
+  }
+  &__description {
+    @include font(400, 16px, 25px);
+    margin-bottom: 65px;
+    color: #727272;
+  }
+  input {
+    @include font(500, 14px, 23px);
+    padding: 17px 0 18px 20px;
+    width: 255px;
+    height: 50px;
+    outline: none;
+    border: none;
+    margin-right: 26px;
+    margin-bottom: 20px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+    &::placeholder {
+      @include font(400, 14px, 23px);
+      color: #5f5d5d;
+    }
+  }
+  textarea {
+    @include font(500, 14px, 23px);
+    padding: 17px 20px 0;
+    border: none;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    width: 540px;
+    height: 175px;
+    margin-bottom: 50px;
+    &::placeholder {
+      @include font(400, 14px, 23px);
+      color: #5f5d5d;
+    }
+  }
+  &__btn {
+    @include font(400, 14px, 15px);
+    letter-spacing: 0.15em;
+    padding: 20px 19px;
+  }
+}
+.footer {
+  background: #34547a;
+  color: #ffffff;
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px;
+  }
+  &__title {
+    @include font(500, 21px, 19px);
+    margin-bottom: 20px;
+  }
+  &__description {
+    @include font(400, 13px, 12px);
+  }
+  ul {
+    display: flex;
+    gap: 22px;
+  }
+}
